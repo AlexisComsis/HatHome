@@ -7,7 +7,7 @@ import pygame
 class tools:
 
     # take the height and width needed
-    with open("Data\Options.txt", "r+") as openfile:
+    with open("Assets\Data\Options.txt", "r+") as openfile:
         openfile = json.loads(openfile.read())
         w0 = openfile["Width"]
         h0 = openfile["Height"]
@@ -31,14 +31,14 @@ class tools:
         return pygame.transform.scale(img, (wc, hc))
 
     def give(file, key, cat, value):
-        with open("Alterable"+file, "r") as options:
+        with open("Data"+file, "r") as options:
             data = options.read()
             options = json.loads(data)
 
             (options[key][cat]) = value
             data = json.dumps(options)
 
-        with open("Alterable"+file, "w") as file:
+        with open("Data"+file, "w") as file:
             file.write(data)
 
     def separate(img_path, x, y, w=w0, h=h0):
