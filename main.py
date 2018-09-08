@@ -1,10 +1,12 @@
+
 import pygame
 
-pygame.mixer.pre_init(44100, -16, 2, 2048)  #bug sound
+
+pygame.mixer.pre_init(44100, -16, 2, 2048)  #bug soundp
 pygame.init()
 
-window = pygame.display.set_mode((800, 450))
-
+window = pygame.display.set_mode((1600, 900), pygame.FULLSCREEN)
+from load import *
 # Set icon
 #pygame.display.set_icon(pygame.image.load("Images\Icon\load.png").convert_alpha())
 # Set title
