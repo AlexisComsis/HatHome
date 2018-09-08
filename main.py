@@ -1,2 +1,1 @@
-print ("bonjour")
-print ("3")
+print ("2")
