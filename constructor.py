@@ -3,6 +3,7 @@ import os
 
 class constructor:
     # Create the file config
+<<<<<<< HEAD
     def config_txt():
         config = {}
         config["config"] = {"width": "1600","height": "900","volume": "0.2","character": "0"}
@@ -25,19 +26,18 @@ class constructor:
         with open("Alterable\Monders.txt", "w") as monders:
             monders.write(data)
     # Creation du fichier options
+=======
+>>>>>>> 4ac6ae93605bb948d9d9c941ea52bfb50e3176ae
     def options_txt():
-        data = {"options": {"width": "1920", "height": "1080", "volume": "0.2", "character": "0"}}
-        data = json.dumps(data)
-        with open("Alterable\Options.txt", "w") as options:
-            options.write(data)
+        options = {}
+        options["Width"] = 1600
+        options["Height"] = 900
 
-if not os.path.exists(os.curdir+"\Alterable"):
-    os.mkdir("Alterable")
-if not os.path.exists(os.curdir+"Alterable\Monders.txt"):
-    constructor.monders_txt()
-if not os.path.exists(os.curdir+"Alterable\Player.txt"):
-    constructor.player_txt()
-if not os.path.exists(os.curdir+"Alterable\Config.txt"):
-    constructor.config_txt()
-if not os.path.exists(os.curdir+"Alterable\Options.txt"):
+        data = json.dumps(options)
+        with open("Data\Options.txt", "w") as file:
+            file.write(data)
+
+if not os.path.exists(os.curdir+"\Data"):
+    os.mkdir("Data")
+if not os.path.exists(os.curdir+"Data\Options.txt"):
     constructor.options_txt()

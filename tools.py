@@ -7,10 +7,10 @@ import pygame
 class tools:
 
     # take the height and width needed
-    with open("Data\Options.txt", "r+") as options:
-        options = json.loads(options.read())
-        w0 = int(options["options"]["width"])
-        h0 = int(options["options"]["height"])
+    with open("Data\Options.txt", "r+") as openfile:
+        openfile = json.loads(openfile.read())
+        w0 = openfile["Width"]
+        h0 = openfile["Height"]
 
     # Convert resolution
     def convert_coord(nx, ny, w=w0, h=h0):
