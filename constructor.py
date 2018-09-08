@@ -5,6 +5,7 @@ class constructor:
     # Create the file config
     def config_txt():
         config = {}
+        config["config"] = {"width": "1600","height": "900","volume": "0.2","character": "0"}
         data = json.dumps(config)
         with open("Alterable\Config.txt", "w") as file:
             file.write(data)
