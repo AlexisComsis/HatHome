@@ -9,10 +9,10 @@ class constructor:
         options["Height"] = 900
 
         data = json.dumps(options)
-        with open("Data\Options.txt", "w") as file:
+        with open("Assets\Data\Options.txt", "w") as file:
             file.write(data)
 
-if not os.path.exists(os.curdir+"\Data"):
-    os.mkdir("Data")
-if not os.path.exists(os.curdir+"Data\Options.txt"):
+if not os.path.exists(os.curdir+"Assets\Data"):
+    os.mkdir("Assets\Data")
+if not os.path.exists(os.curdir+"Assets\Data\Options.txt"):
     constructor.options_txt()
