@@ -12,7 +12,7 @@ class tools:
         w0 = openfile["Width"]
         h0 = openfile["Height"]
 
-    # Convert resolution
+    # Convert resolution depending on the screen
     def convert_coord(nx, ny, w=w0, h=h0):
         return [int(nx / 1600 * w), int(ny / 900 * h)]
 
@@ -42,6 +42,9 @@ class tools:
             file.write(data)
 
     def separate(img_path, x, y, w=w0, h=h0):
+        '''
+        separate different sprites
+        '''
         img = tools.lc(img_path)
         converted_sizer = tools.convert_coord(x, y)
         timer = int(img.get_width() / converted_sizer[0])
