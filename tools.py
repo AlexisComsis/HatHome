@@ -4,8 +4,6 @@ Tools for the developpement
 import json
 import pygame
 
-pygame.init()
-
 class tools:
 
     # take the height and width needed
