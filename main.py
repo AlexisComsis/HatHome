@@ -5,7 +5,7 @@ from entity import *
 pygame.mixer.pre_init(44100, -16, 2, 2048)  #bug soundp
 pygame.init()
 
-window = pygame.display.set_mode((1600, 900), pygame.FULLSCREEN)
+window = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN)
 
 from load import *
 
@@ -73,7 +73,7 @@ while run:
     elif keys[pygame.K_d]:
         player.right()
 
-    pygame.draw.rect(window,(50,50,50),(0,0,1600,900))
+    window.blit(background, (0,0))
     player.display(window)
 
     # [---[Update Display]---]
