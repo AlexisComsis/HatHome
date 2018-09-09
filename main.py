@@ -7,17 +7,25 @@ pygame.mixer.pre_init(44100, -16, 2, 2048)  #bug soundp
 pygame.init()
 
 window = pygame.display.set_mode((1600, 900), pygame.FULLSCREEN)
+
 from load import *
+
 # Set icon
-#pygame.display.set_icon(pygame.image.load("Images\Icon\load.png").convert_alpha())
+pygame.display.set_icon(icon)
+
 # Set title
 pygame.display.set_caption("HatHome")
+
+# Set Music
+pygame.mixer.music.load("Assets\Music\music.mp3")
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.5)
 
 # Tick Init
 clock = pygame.time.Clock()
 
 # Create player
-player = Player(500, 500, 10, Icon, 10, 1)
+player = Player(500, 500, 5, spriteplayer, 10, 1)
 
 # Main loop
 run = True
@@ -48,7 +56,7 @@ while run:
     if keys[pygame.K_d]:
         player.right()
 
-    pygame.draw.rect(window,(0,0,0),(0,0,1920,1080))
+    pygame.draw.rect(window,(50,50,50),(0,0,1600,900))
     player.display(window)
 
     # [---[Update Display]---]

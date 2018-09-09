@@ -24,7 +24,7 @@ class tools:
         img = pygame.image.load(img_path).convert_alpha()
         return img.get_height()
 
-    def lc(img_path, w=w0, h=h0):   #lc for load convert
+    def load_convert(img_path, w=w0, h=h0):
         img = pygame.image.load(img_path).convert_alpha()
         wc = int(img.get_width() / 1600 * w)
         hc = int(img.get_height() / 900 * h)
@@ -45,7 +45,7 @@ class tools:
         '''
         separate different sprites
         '''
-        img = tools.lc(img_path)
+        img = tools.load_convert(img_path)
         converted_sizer = tools.convert_coord(x, y)
         timer = int(img.get_width() / converted_sizer[0])
         img_list = list()

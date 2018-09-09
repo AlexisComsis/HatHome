@@ -8,7 +8,7 @@ class Entity:
         self.sprite = sprite
 
     def display(self, window):
-        window.blit(self.sprite[0],(self.x, self.y))
+        window.blit(self.sprite[4],(self.x, self.y))
 
 
 class Living(Entity):
