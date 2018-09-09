@@ -31,6 +31,7 @@ run = True
 
 while run:
     clock.tick(60)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -46,13 +47,30 @@ while run:
         run = False
 
     # Control
+    #UP
     if keys[pygame.K_w]:
-        player.up()
-    if keys[pygame.K_s]:
-        player.down()
-    if keys[pygame.K_a]:
+        if keys[pygame.K_a]:
+            player.upleft()
+        elif keys[pygame.K_d]:
+            player.upright()
+        else:
+            player.up()
+
+    #DOWN
+    elif keys[pygame.K_s]:
+        if keys[pygame.K_a]:
+            player.downleft()
+        elif keys[pygame.K_d]:
+            player.downright()
+        else:
+            player.down()
+
+    #LEFT
+    elif keys[pygame.K_a]:
         player.left()
-    if keys[pygame.K_d]:
+
+    #RIGHT
+    elif keys[pygame.K_d]:
         player.right()
 
     pygame.draw.rect(window,(50,50,50),(0,0,1600,900))
