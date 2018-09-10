@@ -1,11 +1,11 @@
-
+from tools import *
 import pygame
 from entity import *
-
+from tools import *
 pygame.mixer.pre_init(44100, -16, 2, 2048)  #bug soundp
 pygame.init()
 
-window = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN)
+window = pygame.display.set_mode((tools.w0, tools.h0), pygame.FULLSCREEN)
 
 from load import *
 

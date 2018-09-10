@@ -30,6 +30,15 @@ class tools:
         hc = int(img.get_height() / 900 * h)
         return pygame.transform.scale(img, (wc, hc))
 
+    def convert(img, w=w0, h=h0):
+        '''
+        convert an image in the format of the options
+        '''
+        wc = int(img.get_width() / 1600 * w)
+        hc = int(img.get_height() / 900 * h)
+        return pygame.transform.scale(img, (wc, hc))
+
+
     def give(file, key, cat, value):
         with open("Data"+file, "r") as options:
             data = options.read()
@@ -41,14 +50,18 @@ class tools:
         with open("Data"+file, "w") as file:
             file.write(data)
 
-    def separate(img_path, x, y, w=w0, h=h0):
+    def separate(img_path, w1, nw, nh):
         '''
         separate different sprites
         '''
-        img = tools.load_convert(img_path)
-        converted_sizer = tools.convert_coord(x, y)
-        timer = int(img.get_width() / converted_sizer[0])
-        img_list = list()
-        for i in range(0, timer):
-            img_list.append(img.subsurface(i * converted_sizer[0], 0, converted_sizer[0], converted_sizer[1]))
+        img = pygame.image.load(img_path).convert_alpha()
+        w2 = img.get_width()
+        h2 = img.get_height()
+        timer = int(w2/w1)
+        img_list = []
+        for i in range(timer):
+            img_list.append(img.subsurface(i*w1, 0, w1, h2))
+        for i in range(len(img_list)):
+            img_list[i] = pygame.transform.scale(img_list[i], (nw, nh))
+            img_list[i] = tools.convert(img_list[i])
         return img_list

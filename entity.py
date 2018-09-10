@@ -1,10 +1,11 @@
+from tools import *
 
 class Entity:
 
     def __init__(self, x, y, speed, sprite):
         self.x = x
         self.y = y
-        self.speed = speed
+        self.speed = speed /1600 * tools.w0
         self.sprite = sprite
 
     def display(self, window):
@@ -57,32 +58,32 @@ class Player(Living):
             Player.timer1 = 0
 
     def up(self):
-        self.y -= self.speed
+        self.y -= self.speed/1.7
         Player.timer1 += 1
         self.movement(7,8)
 
     def upleft(self):
-        self.y -= self.speed /1.5
-        self.x -= self.speed /1.5
+        self.y -= self.speed /2
+        self.x -= self.speed /2
         self.movement(11,12)
 
     def upright(self):
-        self.y -= self.speed /1.5
-        self.x += self.speed /1.5
+        self.y -= self.speed /2
+        self.x += self.speed /2
         self.movement(9,10)
 
     def down(self):
-        self.y += self.speed
+        self.y += self.speed/1.7
         self.movement(5,6)
 
     def downleft(self):
-        self.y += self.speed /1.5
-        self.x -= self.speed /1.5
+        self.y += self.speed /2
+        self.x -= self.speed /2
         self.movement(15,16)
 
     def downright(self):
-        self.y += self.speed /1.5
-        self.x += self.speed /1.5
+        self.y += self.speed /2
+        self.x += self.speed /2
         self.movement(13,14)
 
     def left(self):
