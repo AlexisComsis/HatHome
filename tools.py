@@ -50,7 +50,9 @@ class tools:
         with open("Data"+file, "w") as file:
             file.write(data)
 
-    def separate(img_path, w1, nw, nh):
+
+
+    def separate(img_path, w1, mult=1):
         '''
         separate different sprites
         '''
@@ -61,7 +63,6 @@ class tools:
         img_list = []
         for i in range(timer):
             img_list.append(img.subsurface(i*w1, 0, w1, h2))
-        for i in range(len(img_list)):
-            img_list[i] = pygame.transform.scale(img_list[i], (nw, nh))
+            img_list[i] = pygame.transform.scale(img_list[i], (int(mult*w1), int(mult*h2)))
             img_list[i] = tools.convert(img_list[i])
         return img_list
