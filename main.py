@@ -2,6 +2,7 @@ from tools import *
 import pygame
 from entity import *
 from tools import *
+from player import *
 pygame.mixer.pre_init(44100, -16, 2, 2048)  #bug soundp
 pygame.init()
 
