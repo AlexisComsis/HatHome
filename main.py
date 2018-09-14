@@ -3,12 +3,17 @@ import pygame
 from entity import *
 from tools import *
 from player import *
+
+
 pygame.mixer.pre_init(44100, -16, 2, 2048)  #bug soundp
 pygame.init()
 
 window = pygame.display.set_mode((tools.w0, tools.h0), pygame.FULLSCREEN)
 
+from text_box import *
 from load import *
+
+text = Box()    #Initialise la boite de texte
 
 # Set icon
 pygame.display.set_icon(icon)
@@ -74,7 +79,12 @@ while run:
     elif keys[pygame.K_d]:
         player.right()
 
+
     window.blit(background, (0,0))
+
+    if keys[pygame.K_t]:        #juste pour le test si la touche t est pressé cela fait apparaitre un texte
+        text.display(window)
+
     player.display(window)
 
     # [---[Update Display]---]
