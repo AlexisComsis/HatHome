@@ -3,7 +3,8 @@ load the images etc...
 '''
 from tools import *
 
-spriteplayer = tools.separate("Assets\Image\SaveSpritePlayer.png", 26, 2)
+spriteplayer = tools.separate("Assets\Image\SpritePlayer.png", 78)
 icon = pygame.transform.scale(pygame.image.load("Assets\Image\Icon.png").convert_alpha(), (32, 32))     #convert alpha use the transparence
-background = pygame.image.load("Assets\Image\Room.png").convert_alpha()
-background = pygame.transform.scale(background.convert_alpha(), (1920, 1080))
+background = tools.load_convert("Assets\Image\Room.png")
+background = pygame.transform.scale(background.convert_alpha(), (tools.w0, tools.h0))
+textbox = tools.load_convert("Assets\Image\Textbox.png")
