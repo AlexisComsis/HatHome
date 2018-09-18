@@ -81,10 +81,10 @@ while run:
 
     window.blit(background, (0,0))
 
-    if keys[pygame.K_t]:        #juste pour le test si la touche t est pressé cela fait apparaitre un texte
+    if keys[pygame.K_t]:        #test touch t = window appear
         text.display(window)
 
     player.display(window)
 
-    # [---[Update Display]---]
+    #Update Display
     pygame.display.update()
