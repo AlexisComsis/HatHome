@@ -34,7 +34,6 @@ player = Player(50, 50, 5, spriteplayer, 10, 1)
 
 # Main loop
 run = True
-
 while run:
     clock.tick(60)
 
