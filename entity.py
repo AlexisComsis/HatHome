@@ -19,7 +19,7 @@ class Entity:
 
     def move(self):
         Entity.timer1 += rd.randint(1, 50)
-        if Entity.timer1 < 7000:
+        if Entity.timer1 < 6500:
             self.state = 0
         elif Entity.timer1 < 10000:
             self.state = 1
