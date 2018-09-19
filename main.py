@@ -32,6 +32,8 @@ clock = pygame.time.Clock()
 # Create player
 home = Player(50, 50, 5, spriteplayer, 10, 1)
 
+servietsky = Entity(100,500,0,spriteservietsky)
+
 # Main loop
 run = True
 while run:
@@ -53,13 +55,14 @@ while run:
 
     #Controlkeys
     home.control(keys)
-
+    servietsky.move()
     window.blit(background, (0,0))
 
     if keys[pygame.K_t]:        #test touch t = window appear
         text.display(window)
 
     home.display(window)
+    servietsky.display(window)
 
     #Update Display
     pygame.display.update()

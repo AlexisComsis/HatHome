@@ -4,7 +4,7 @@ class Player(Living):
 
     def __init__(self, x, y, speed, sprite, hp_limit, lvl):
         Living.__init__(self, x, y, speed, sprite, hp_limit, lvl)
-        self.direction = 0
+        self.state = 0
 
 
     #0 = front
@@ -25,7 +25,6 @@ class Player(Living):
     #15 = downleft1
     #16 = downleft2
 
-    timer1 = 0
 
     def control(self, keys):
         #UP
@@ -60,9 +59,9 @@ class Player(Living):
         Player.timer1 += 1
 
         if Player.timer1 <= 7:
-            self.direction = spr1
+            self.state = spr1
         elif Player.timer1 <= 14:
-            self.direction = spr2
+            self.state = spr2
         else:
             Player.timer1 = 0
 

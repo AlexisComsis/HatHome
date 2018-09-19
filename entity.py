@@ -1,16 +1,30 @@
 from tools import *
+import random as rd
 
 class Entity:
+
+
 
     def __init__(self, x, y, speed, sprite):
         self.x = x
         self.y = y
         self.speed = speed /1600 * tools.w0
         self.sprite = sprite
+        self.state = 0
+
+    timer1 = 0
 
     def display(self, window):
-        window.blit(self.sprite[self.direction],(self.x, self.y))
+        window.blit(self.sprite[self.state],(self.x, self.y))
 
+    def move(self):
+        Entity.timer1 += rd.randint(1, 50)
+        if Entity.timer1 < 7000:
+            self.state = 0
+        elif Entity.timer1 < 10000:
+            self.state = 1
+        else:
+            Entity.timer1 = 0
 
 class Living(Entity):
 
