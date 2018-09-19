@@ -27,6 +27,35 @@ class Player(Living):
 
     timer1 = 0
 
+    def control(self, keys):
+        #UP
+        if keys[pygame.K_w]:
+            if keys[pygame.K_a]:
+                self.upleft()
+            elif keys[pygame.K_d]:
+                self.upright()
+            else:
+                self.up()
+
+        #DOWN
+        elif keys[pygame.K_s]:
+            if keys[pygame.K_a]:
+                self.downleft()
+            elif keys[pygame.K_d]:
+                self.downright()
+            else:
+                self.down()
+
+        #LEFT
+        elif keys[pygame.K_a]:
+            self.left()
+
+        #RIGHT
+        elif keys[pygame.K_d]:
+            self.right()
+
+
+
     def movement(self,spr1,spr2):
         Player.timer1 += 1
 

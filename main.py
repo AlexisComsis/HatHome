@@ -30,7 +30,7 @@ pygame.mixer.music.set_volume(4)
 clock = pygame.time.Clock()
 
 # Create player
-player = Player(50, 50, 5, spriteplayer, 10, 1)
+home = Player(50, 50, 5, spriteplayer, 10, 1)
 
 # Main loop
 run = True
@@ -51,40 +51,15 @@ while run:
     if keys[pygame.QUIT]:
         run = False
 
-    # Control
-    #UP
-    if keys[pygame.K_w]:
-        if keys[pygame.K_a]:
-            player.upleft()
-        elif keys[pygame.K_d]:
-            player.upright()
-        else:
-            player.up()
-
-    #DOWN
-    elif keys[pygame.K_s]:
-        if keys[pygame.K_a]:
-            player.downleft()
-        elif keys[pygame.K_d]:
-            player.downright()
-        else:
-            player.down()
-
-    #LEFT
-    elif keys[pygame.K_a]:
-        player.left()
-
-    #RIGHT
-    elif keys[pygame.K_d]:
-        player.right()
-
+    #Controlkeys
+    home.control(keys)
 
     window.blit(background, (0,0))
 
     if keys[pygame.K_t]:        #test touch t = window appear
         text.display(window)
 
-    player.display(window)
+    home.display(window)
 
     #Update Display
     pygame.display.update()
