@@ -26,6 +26,10 @@ class Player(Living):
     #16 = downleft2
 
 
+    def display(self, window, keys):
+        self.control(keys)
+        window.blit(self.sprite[self.state],(self.x, self.y))
+
     def control(self, keys):
         #UP
         if keys[pygame.K_w]:
