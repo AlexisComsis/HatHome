@@ -1,5 +1,6 @@
 from tools import *
 import pygame
+
 from entity import *
 from tools import *
 from player import *
@@ -12,8 +13,6 @@ window = pygame.display.set_mode((tools.w0, tools.h0), pygame.FULLSCREEN)
 
 from text_box import *
 from load import *
-
-text = Box()    #Initialise la boite de texte
 
 # Set icon
 pygame.display.set_icon(icon)
@@ -30,9 +29,7 @@ pygame.mixer.music.set_volume(4)
 clock = pygame.time.Clock()
 
 # Create player
-home = Player(50, 50, 5, spriteplayer, 10, 1)
-# Create PNJ
-servietsky = Entity(100, 500, 0, spriteservietsky)
+home = Player(50, 50, spriteplayer[0], 100, 50, spriteplayer)
 
 # Main loop
 run = True
@@ -55,9 +52,7 @@ while run:
 
     #Controlkeys
     window.blit(background, (0,0))
-
-    servietsky.display(window)
-    home.display(window, keys)
+    home.be(window, keys, mouse, click)
 
     #Update Display
     pygame.display.update()

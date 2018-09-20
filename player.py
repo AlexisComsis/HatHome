@@ -1,11 +1,14 @@
-from entity import*
+from living import *
 
 class Player(Living):
 
-    def __init__(self, x, y, speed, sprite, hp_limit, lvl):
-        Living.__init__(self, x, y, speed, sprite, hp_limit, lvl)
-        self.state = 0
+    def __init__(self, x, y, image, hp_limit, speed, sprite):
+        Living.__init__(self, x, y, image, hp_limit, speed)
+        self.sprite = sprite
 
+    def be(self, window, keys, mouse, click):
+        self.control(keys)
+        window.blit(self.image,(self.x, self.y))
 
     #0 = front
     #1 = right1
@@ -24,11 +27,6 @@ class Player(Living):
     #14 = downright2
     #15 = downleft1
     #16 = downleft2
-
-
-    def display(self, window, keys):
-        self.control(keys)
-        window.blit(self.sprite[self.state],(self.x, self.y))
 
     def control(self, keys):
         #UP
@@ -57,51 +55,50 @@ class Player(Living):
         elif keys[pygame.K_d]:
             self.right()
 
-
-
-    def movement(self,spr1,spr2):
+    timer1 = 0
+    def animation(self, spr1, spr2):
         Player.timer1 += 1
 
         if Player.timer1 <= 7:
-            self.state = spr1
+            self.image = self.sprite[spr1]
         elif Player.timer1 <= 14:
-            self.state = spr2
+            self.image = self.sprite[spr2]
         else:
             Player.timer1 = 0
 
     def up(self):
         self.y -= self.speed/1.7
         Player.timer1 += 1
-        self.movement(7,8)
+        self.animation(7,8)
 
     def upleft(self):
         self.y -= self.speed /2
         self.x -= self.speed /2
-        self.movement(11,12)
+        self.animation(11,12)
 
     def upright(self):
         self.y -= self.speed /2
         self.x += self.speed /2
-        self.movement(9,10)
+        self.animation(9,10)
 
     def down(self):
         self.y += self.speed/1.7
-        self.movement(5,6)
+        self.animation(5,6)
 
     def downleft(self):
         self.y += self.speed /2
         self.x -= self.speed /2
-        self.movement(15,16)
+        self.animation(15,16)
 
     def downright(self):
         self.y += self.speed /2
         self.x += self.speed /2
-        self.movement(13,14)
+        self.animation(13,14)
 
     def left(self):
         self.x -= self.speed
-        self.movement(3,4)
+        self.animation(3,4)
 
     def right(self):
         self.x += self.speed
-        self.movement(1,2)
+        self.animation(1,2)
