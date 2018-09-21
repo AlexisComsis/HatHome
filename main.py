@@ -4,7 +4,7 @@ import pygame
 from entity import *
 from tools import *
 from player import *
-
+from background import *
 
 pygame.mixer.pre_init(44100, -16, 2, 2048)  #bug soundp
 pygame.init()
@@ -29,8 +29,8 @@ pygame.mixer.music.set_volume(4)
 clock = pygame.time.Clock()
 
 # Create player
-home = Player(50, 50, spriteplayer[0], 100, 50, spriteplayer)
-
+home = Player(750, 400, spriteplayer[0], 100, 50, spriteplayer)
+background = Background(5, background, 0, 0)
 # Main loop
 run = True
 while run:
@@ -51,7 +51,8 @@ while run:
         run = False
 
     #Controlkeys
-    window.blit(background, (0,0))
+    pygame.Surface.fill(window, (0, 0, 0))
+    background.be(window, keys)
     home.be(window, keys, mouse, click)
 
     #Update Display
