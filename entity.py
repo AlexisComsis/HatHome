@@ -1,36 +1,13 @@
 from tools import *
-import random as rd
 
 class Entity:
-
-
-
-    def __init__(self, x, y, speed, sprite):
+    """
+    All entity who get an x and y and can be
+    """
+    def __init__(self, x, y, image):
         self.x = x
         self.y = y
-        self.speed = speed /1600 * tools.w0
-        self.sprite = sprite
-        self.state = 0
+        self.image = image
 
-    timer1 = 0
-
-    def display(self, window):
-        self.updater()
-        window.blit(self.sprite[self.state],(self.x, self.y))
-
-    def move(self):
-        Entity.timer1 += rd.randint(1, 50)
-        if Entity.timer1 < 6500:
-            self.state = 0
-        elif Entity.timer1 < 90:
-            self.state = 1
-        else:
-            Entity.timer1 = 0
-
-class Living(Entity):
-
-    def __init__(self, x, y, speed, sprite, hp_limit, lvl):
-        Entity.__init__(self, x, y, speed, sprite)
-        self.lvl = lvl
-        self.hp_limit = hp_limit   # Max health points
-        self.hp = hp_limit # Health points
+    def be(self, window):
+        window.blit(self.image,(self.x, self.y))
