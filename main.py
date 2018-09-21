@@ -29,7 +29,7 @@ pygame.mixer.music.set_volume(4)
 clock = pygame.time.Clock()
 
 # Create player
-home = Player(50, 50, spriteplayer[0], 100, 50, spriteplayer)
+home = Player(50, 50, spriteplayer[0], 100, 5, spriteplayer)
 
 # Main loop
 run = True
