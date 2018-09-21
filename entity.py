@@ -15,13 +15,20 @@ class Entity:
     timer1 = 0
 
     def display(self, window):
+        self.updater()
         window.blit(self.sprite[self.state],(self.x, self.y))
 
+<<<<<<< HEAD
     def move(self):
         Entity.timer1 += rd.randint(1, 50)
         if Entity.timer1 < 6500:
+=======
+    def updater(self):
+        Entity.timer1 += 1
+        if Entity.timer1 < 65:
+>>>>>>> 7804c3596682dac2b616822604b91b00dee9a10c
             self.state = 0
-        elif Entity.timer1 < 10000:
+        elif Entity.timer1 < 90:
             self.state = 1
         else:
             Entity.timer1 = 0
