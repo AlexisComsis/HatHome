@@ -61,7 +61,7 @@ class Player(Living):
 
         if Player.timer1 <= 5:
             self.image = self.sprite[spr1]
-        elif Player.timer1 <= 10:
+        elif Player.timer1 <= 11:
             self.image = self.sprite[spr2]
         else:
             Player.timer1 = 0

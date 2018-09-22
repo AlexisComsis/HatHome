@@ -34,7 +34,7 @@ background = Background(5, background, 0, 0)
 # Main loop
 run = True
 while run:
-    clock.tick(60)
+    clock.tick(120)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
