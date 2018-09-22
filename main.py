@@ -11,7 +11,7 @@ pygame.init()
 
 window = pygame.display.set_mode((tools.w0, tools.h0), pygame.FULLSCREEN)
 
-from text_box import *
+from textbox import *
 from load import *
 
 # Set icon
