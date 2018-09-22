@@ -1,13 +1,8 @@
-from tools import *
+from gameobject import *
 
-class Entity:
-    """
-    All entity who get an x and y and can be
-    """
-    def __init__(self, x, y, image):
-        self.x = x
-        self.y = y
-        self.image = image
+class Entity(Game_object):
 
-    def be(self, window):
-        window.blit(self.image,(self.x, self.y))
+    def __init__(self, x, y, imageup, sprite=Game_object.defaultimg):        #imageon represent basic image
+        Entity.__init__(self, x, y, imageup)
+
+    def movemap():

@@ -11,7 +11,7 @@ pygame.init()
 
 window = pygame.display.set_mode((tools.w0, tools.h0), pygame.FULLSCREEN)
 
-from text_box import *
+from textbox import *
 from load import *
 
 # Set icon
@@ -34,7 +34,7 @@ background = Background(5, background, 0, 0)
 # Main loop
 run = True
 while run:
-    clock.tick(60)
+    clock.tick(120)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
