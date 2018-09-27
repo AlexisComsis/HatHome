@@ -4,11 +4,10 @@ Tools for the developpement
 import json
 import pygame
 
-
 class tools:
 
-    # take the height and width need
-    with open("HatHome\Assets\Data\Options.txt", "r") as openfile:
+    # take the height and width needed
+    with open("HatHome\Assets\Data\Options.txt", "r+") as openfile:
         openfile = json.loads(openfile.read())
         w0 = openfile["Width"]
         h0 = openfile["Height"]

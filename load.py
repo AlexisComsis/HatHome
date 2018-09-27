@@ -3,6 +3,7 @@ load the images etc...
 '''
 from tools import *
 
+spritebuggman = tools.separate("HatHome\Assets\Image\defaultimg.png", 78)
 spriteplayer = tools.separate("HatHome\Assets\Image\SpritePlayer.png", 78)
 icon = pygame.transform.scale(pygame.image.load("HatHome\Assets\Image\Icon.png").convert_alpha(), (32, 32))     #convert alpha use the transparence
 background = tools.load_convert("HatHome\Assets\Image\Room.png")
