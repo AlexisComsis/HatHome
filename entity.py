@@ -1,6 +1,5 @@
 from tools import *
 import random as rd
-
 class Entity:
 
 
@@ -11,6 +10,11 @@ class Entity:
         self.speed = speed /1600 * tools.w0
         self.sprite = sprite
         self.state = 0
+        self.hitbox_update()
+
+    def hitbox_update(self):
+        img = self.sprite[0]
+        self.hitbox = hitbox = (img.get_height(),img.get_width(),(self.x, self.y))
 
     timer1 = 0
 
@@ -19,6 +23,7 @@ class Entity:
         window.blit(self.sprite[self.state],(self.x, self.y))
 
     def updater(self):
+        self.hitbox_update()
         Entity.timer1 += 1
         if Entity.timer1 < 65:
             self.state = 0

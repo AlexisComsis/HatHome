@@ -5,6 +5,7 @@ from tools import *
 from player import *
 
 
+
 pygame.mixer.pre_init(44100, -16, 2, 2048)  #bug soundp
 pygame.init()
 
@@ -22,7 +23,7 @@ pygame.display.set_icon(icon)
 pygame.display.set_caption("HatHome")
 
 # Set Music
-pygame.mixer.music.load("Assets\Music\music.mp3")
+pygame.mixer.music.load("HatHome\Assets\Music\music.mp3")
 pygame.mixer.music.play(-1)
 pygame.mixer.music.set_volume(4)
 
